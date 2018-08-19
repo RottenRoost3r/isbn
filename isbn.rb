@@ -1,5 +1,4 @@
 def isbn_dash(num)
-    num.to_s
     num = num.tr('-', '')
     num = num.tr(' ', '')
     num
@@ -21,23 +20,28 @@ end
 def isbn_10(num2)
     num3 = num2.split('')
     if num3.last.downcase == "x"
-        return true
+        num3.pop
+        num3 << "10" 
+    end
+    num3.each do |n|
+        if n != Integer
+        return false
+        end
+    end
+    counter = 10
+    check_arr = []
+    num3.each.with_index(1) do |n, index|
+        chk = n.to_i*counter
+        counter -= 1
+        check_arr << chk
+    end
+    check_num = check_arr.sum
+    check_num = check_num % 11
+    check_num
+    if check_num == 0
+       return true
     else
-        counter = 10
-        check_arr = []
-        num3.each.with_index(1) do |n, index|
-            chk = n.to_i*counter
-            counter -= 1
-            check_arr << chk
-        end
-        check_num = check_arr.sum
-        check_num = check_num % 11
-        check_num
-        if check_num == 0
-            return true
-        else
-            return false
-        end
+        return false
     end
 end
 
@@ -67,4 +71,3 @@ def isbn_13(num2)
         return false
     end
 end
-

@@ -1,0 +1,26 @@
+
+<head>
+<title> ISBN </title>
+<link rel="stylesheet" type="text/css" href="/css/isbn.css">
+<h1> ISBN </h1>
+</head>
+<form method="post" action="isbn">
+
+ <textarea rows="4" cols="50" name="garb" placeholder="enter isbn number here"></textarea>
+
+<input type="submit">
+
+
+</form>
+
+<% if session[:result] == true%>
+    <%result = " , Valid"%>
+    <%elsif session[:result] == false%>
+    <%result = " , Invalid"%>
+<%end%>
+
+
+<%=isbn_name.each_with_index do |n, i|%>
+    <%=n%>
+<%end%>
+<%=result[i]%>
