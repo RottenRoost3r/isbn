@@ -13,14 +13,15 @@
 
 </form>
 
-<% if session[:result] == true%>
-    <%result = " , Valid"%>
-    <%elsif session[:result] == false%>
-    <%result = " , Invalid"%>
-<%end%>
 
 
-<%=isbn_name.each_with_index do |n, i|%>
-    <%=n%>
+<%isbn_name.each_with_index do |n, i|%>
+    <%= n%> 
+<%if result[i] == true%>
+    Valid
+<% else %>
+    Invalid
 <%end%>
-<%=result[i]%>
+<br>
+<%end%>
+
