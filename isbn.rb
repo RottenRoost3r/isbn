@@ -1,7 +1,8 @@
 def isbn_dash(num)
     num = num.tr('-', '')
     num = num.tr(' ', '')
-    num
+    num5 = num.gsub(/[^0-9xX]/, '')
+    num5
 end
 
 def funk_master(num)
@@ -18,16 +19,19 @@ def funk_master(num)
 end
 
 def isbn_10(num2)
+    
     num3 = num2.split('')
     if num3.last.downcase == "x"
         num3.pop
         num3 << "10" 
     end
-    num3.each do |n|
-        if n != Integer
-        return false
-        end
-    end
+    
+
+    # num3.each do |n|
+    #     if n.to_i != Integer
+    #         return false
+    #     end
+    # end
     counter = 10
     check_arr = []
     num3.each.with_index(1) do |n, index|
@@ -43,6 +47,7 @@ def isbn_10(num2)
     else
         return false
     end
+    
 end
 
 def isbn_13(num2)

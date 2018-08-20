@@ -6,22 +6,24 @@
 </head>
 <form method="post" action="isbn">
 
- <textarea rows="4" cols="50" name="garb" placeholder="enter isbn number here"></textarea>
-
+<textarea rows="4" cols="50" name="garb" placeholder="enter isbn number here"></textarea>
+<br>
 <input type="submit">
 
 
 </form>
 
-
+<div class="result_tab">
 
 <%isbn_name.each_with_index do |n, i|%>
     <%= n%> 
 <%if result[i] == true%>
-    Valid
+    ,Valid
 <% else %>
-    Invalid
+    ,Invalid
 <%end%>
 <br>
 <%end%>
+
+</div>
 
