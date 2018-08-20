@@ -8,7 +8,7 @@ end
 def funk_master(num)
     num2 = isbn_dash(num)
     chek = num2.length
-    if chek > 10
+    if chek == 13
         num2 = isbn_13(num2)
     elsif chek == 10
         num2 = isbn_10(num2)
