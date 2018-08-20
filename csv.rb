@@ -3,15 +3,21 @@ require 'csv'
 
 numbers_arr = []
 
-CSV.foreach("csv/input_isbn_file.csv", :headers =>true) do |row|
+CSV.foreach("csv/input_isbn_file.csv", ) do |row|
     row.shift
     numbers_arr << row
-
 end
+
 CSV.open("csv/output_isbn_file.csv", "wb") do |csv|
-    # csv << ["ISBN", "VALIDITY"]
+    csv << ["ISBN", "VALIDITY"]
+    numbers_arr.shift
     numbers_arr.each do |num|
-        validity = funk_master(num)
-        csv << [num, validity]
+        validity = funk_master(num[0])
+        if validity == true
+          validity = " Valid"
+        else
+           validity = " Invalid"
+        end
+        csv << [num.join, validity]
     end
 end
