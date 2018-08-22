@@ -25,7 +25,11 @@ def isbn_10(num2)
         num3.pop
         num3 << "10" 
     end
-    
+    num3.each do |val|
+        if val.to_i.to_s != val
+            return false
+        end
+    end
 
     # num3.each do |n|
     #     if n.to_i != Integer
