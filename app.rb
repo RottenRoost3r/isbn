@@ -27,6 +27,7 @@ post'/isbn' do
   end
 
   valid = CSV.generate do |csv|
+    csv << ["ISBN", "VALIDITY"]
     val_arr.each_with_index do |v,i|
       csv << [line_arr[i], v]
     end
